@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
 from __future__ import absolute_import
 from __future__ import print_function
 
@@ -60,35 +58,3 @@ class BaseImageDataset(BaseDataset):
         print("  query    | {:5d} | {:8d} | {:9d}".format(num_query_pids, num_query_imgs, num_query_cams))
         print("  gallery  | {:5d} | {:8d} | {:9d}".format(num_gallery_pids, num_gallery_imgs, num_gallery_cams))
         print("  ----------------------------------------")
-
-
-class BaseVideoDataset(BaseDataset):
-    """
-    Base class of video reid dataset
-    """
-
-    def print_dataset_statistics(self, train, query, gallery):
-        num_train_pids, num_train_tracklets, num_train_cams, train_tracklet_info = \
-            self.get_videodata_info(train, return_tracklet_info=True)
-        
-        num_query_pids, num_query_tracklets, num_query_cams, query_tracklet_info = \
-            self.get_videodata_info(query, return_tracklet_info=True)
-        
-        num_gallery_pids, num_gallery_tracklets, num_gallery_cams, gallery_tracklet_info = \
-            self.get_videodata_info(gallery, return_tracklet_info=True)
-
-        tracklet_info = train_tracklet_info + query_tracklet_info + gallery_tracklet_info
-        min_num = np.min(tracklet_info)
-        max_num = np.max(tracklet_info)
-        avg_num = np.mean(tracklet_info)
-
-        print("Dataset statistics:")
-        print("  -------------------------------------------")
-        print("  subset   | # ids | # tracklets | # cameras")
-        print("  -------------------------------------------")
-        print("  train    | {:5d} | {:11d} | {:9d}".format(num_train_pids, num_train_tracklets, num_train_cams))
-        print("  query    | {:5d} | {:11d} | {:9d}".format(num_query_pids, num_query_tracklets, num_query_cams))
-        print("  gallery  | {:5d} | {:11d} | {:9d}".format(num_gallery_pids, num_gallery_tracklets, num_gallery_cams))
-        print("  -------------------------------------------")
-        print("  number of images per tracklet: {} ~ {}, average {:.2f}".format(min_num, max_num, avg_num))
-        print("  -------------------------------------------")
