@@ -7,6 +7,7 @@ Person re-identification (reID) aims to match person images to retrieve the ones
 We propose a framework that drives the reID network to learn semantics-aligned feature representation through delicate supervision designs. Specifically, we build a Semantics Aligning Network (SAN) which consists of a base network as encoder (SA-Enc) for re-ID, and a decoder (SA-Dec) for reconstructing/regressing the densely semantics aligned full texture image. We jointly train the SAN under the supervisions of person re-identification and aligned texture generation. Moreover, at the decoder, besides the reconstruction loss, we add Triplet ReID constraints over the feature maps as the perceptual losses. The decoder is discarded in the inference and thus our scheme is computationally efficient. Our design significantly outperforms the performance of baseline and achieve the state-of-the-art performance. 
 
 ![image](https://github.com/microsoft/Semantics-Aligned-Representation-Learning-for-Person-Re-identification/blob/master/pipeline.png)
+
 Figure 1: Illustration of the proposed Semantics Aligning Network (SAN). It consists of a base network as encoder (SA-Enc) and a decoder sub-network (SA-Dec). The reID feature vector is obtained by average pooling the feature map of the SA-Enc, followed by the reID losses. To encourage the encoder learning semantically aligned features, the SA-Dec is followed which regresses the densely semantically aligned full texture image with the pseudo groundtruth supervision. In inference, the SA-Dec is discarded.
 
 ## Installation
