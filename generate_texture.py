@@ -1,3 +1,5 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
 import torch
 import cv2
 import argparse

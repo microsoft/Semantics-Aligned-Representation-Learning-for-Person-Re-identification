@@ -19,6 +19,10 @@ Figure 1: Illustration of the proposed Semantics Aligning Network (SAN). It cons
 
 To train the SAN-PG, we synthesize a Paired-Image-Texture dataset (PIT dataset), based on SURREAL dataset (https://www.di.ens.fr/willow/research/surreal/), for the purpose of providing the image pairs, i.e., the person image and its texture image. The texture image stores the RGB texture of the full person 3D surface. In particular, we use 929 raster-scanned texture maps provided by the SURREAL dataset to generate the image pairs. On SURREAL, all faces in the texture image are replaced by an average face of either man or woman. We generate 9,290 different meshes of diverse poses/shapes/viewpoints. For each texture map, we assign 10 different meshes and render these 3D meshes with the texture image. Then we obtain in total 9,290 different synthesized (person image, texture image) pairs. To simulate real-world scenes, the background images for rendering are randomly sampled from COCO dataset (http://cocodataset.org/#home). Each synthetic person image is centered on a person with resolution 256x128. The resolution of the texture images is 256x256. The PIT dataset can be download from [here](https://drive.google.com/file/d/1-ndIFhppMG_zjHCRfrnWRvbRQZObw2tT/view?usp=sharing)
 
+![image](https://github.com/microsoft/Semantics-Aligned-Representation-Learning-for-Person-Re-identification/blob/master/PIT_dataset.png)
+
+
+Figure 2: Examples of texture images (first row) and the corresponding synthesized person images with different poses, viewpoints, and backgrounds (second row). A texture image represents the full texture of the 3D human surface in a surface-based canonical coordinate system (UV space). Each position (u,v) corresponds to a unique semantic identity. For person images of different persons/poses/viewpoints (in the second row), their corresponding texture images are densely semantically aligned.
 
 ## ReID Dataset Preparation
 Image-reid datasets (here we use CUHK03 dataset as an example for description):
