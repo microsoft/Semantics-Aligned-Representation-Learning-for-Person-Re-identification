@@ -43,7 +43,7 @@ cuhk03/
 
 ## Pseudo Groundtruth Texture Images Generation
 
-We train a network for the purpose of generating pseudo groundtruth texture images for any given input person image. For simplicity, we reuse a simplified SAN (i.e., SAN-PG) which consists of the SA-Enc and SA-Dec, same network architecture, but with only the reconstruction loss. We train the SAN-PG with our synthesized PIT dataset. The SAN-PG model is then used to generate pseudo groundtruth texture image for reID dataset.
+We train a network for the purpose of generating pseudo groundtruth texture images for any given input person image. For simplicity, we reuse a simplified SAN (i.e., SAN-PG) which consists of the SA-Enc and SA-Dec, but with only the reconstruction loss. We train the SAN-PG with our synthesized PIT dataset. The SAN-PG model is then used to generate pseudo groundtruth texture image for reID dataset.
 
 Here we provide the pre-trained weight for [SAN-PG](https://drive.google.com/file/d/14awPVhJA5yT9j7nZb7nVAmC3J6ELxNGD/view?usp=sharing) and the corresponding pseudo texture images generation scripts `generate_texture.py`, you can synthesize your own texture images by running:
 ```bash
