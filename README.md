@@ -45,14 +45,13 @@ cuhk03/
 
 We train a network for the purpose of generating pseudo groundtruth texture images for any given input person image. For simplicity, we reuse a simplified SAN (i.e., SAN-PG) which consists of the SA-Enc and SA-Dec, but with only the reconstruction loss. We train the SAN-PG with our synthesized PIT dataset. The SAN-PG model is then used to generate pseudo groundtruth texture image for reID dataset.
 
-Here we provide the pre-trained weight for [SAN-PG](https://drive.google.com/file/d/14awPVhJA5yT9j7nZb7nVAmC3J6ELxNGD/view?usp=sharing) and the corresponding pseudo texture images generation scripts `generate_texture.py`, you can synthesize your own texture images by running:
+Here we provide the pre-trained weight for [SAN-PG](https://drive.google.com/file/d/14awPVhJA5yT9j7nZb7nVAmC3J6ELxNGD/view?usp=sharing) and the corresponding pseudo texture images generation script `generate_texture.py`, you can generate the pseudo texture images of your given person images by running:
 ```bash
 python generate_texture.py -m /DOWNLOADED_SAN-PG_WEIGHTS -i example_results/input -o example_results/texture
 ```
+For convenience, we also provide our generated pseudo groundtruth texture images for CUHK03 (Labeled), that is [texture_cuhk03_labeled](https://drive.google.com/file/d/19-9WdlbqjD4n2usV-D2zyyzeUfjcXxlv/view?usp=sharing) 
 
-For convenience, we also provide our pre-synthesized pseudo groundtruth texture images for CUHK03 (Labeled), that is [texture_cuhk03_labeled](https://drive.google.com/file/d/19-9WdlbqjD4n2usV-D2zyyzeUfjcXxlv/view?usp=sharing) 
-
-- Extract our pre-synthesized pseudo groundtruth texture images to /YOUR_DATASET_PATH/cuhk03/
+- Place these generated pseudo groundtruth texture images of CUHK03 dataset to /YOUR_DATASET_PATH/cuhk03/
 - Finally, the CUHK03 ReID data structure would look like
 ```
 cuhk03/
