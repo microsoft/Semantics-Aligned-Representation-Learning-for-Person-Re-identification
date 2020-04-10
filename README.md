@@ -62,7 +62,7 @@ cuhk03/
 ```
 
 
-## Training and evaluation
+## Train and Evaluation
 
 ```bash
 python main.py \
