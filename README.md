@@ -25,12 +25,11 @@ To train the SAN-PG, we synthesize a Paired-Image-Texture dataset (PIT dataset),
 Figure 2: Examples of texture images (first row) and the corresponding synthesized person images with different poses, viewpoints, and backgrounds (second row). A texture image represents the full texture of the 3D human surface in a surface-based canonical coordinate system (UV space). Each position (u,v) corresponds to a unique semantic identity. For person images of different persons/poses/viewpoints (in the second row), their corresponding texture images are densely semantically aligned.
 
 ## ReID Dataset Preparation
-Image-reid datasets (here we use CUHK03 dataset as an example for description):
-- [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) (`cuhk03`)
-The keys to use these datasets are enclosed in the parentheses. See [torchreid/datasets/\_\_init__.py](torchreid/datasets/__init__.py) for details. The data managers of image reid are implemented in [torchreid/data_manager.py](torchreid/data_manager.py).
+Here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as the example for description. See [torchreid/datasets/\_\_init__.py](torchreid/datasets/__init__.py) for details. The data managers of image reID are implemented in [torchreid/data_manager.py](torchreid/data_manager.py).
+
 1. Create a folder named `cuhk03/` under `/YOUR_DATASET_PATH/`.
 2. Download dataset to `data/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`, so you will have `data/cuhk03/cuhk03_release`.
-3. Download new split from [person-re-ranking](https://github.com/zhunzhong07/person-re-ranking/tree/master/evaluation/data/CUHK03). What you need are `cuhk03_new_protocol_config_detected.mat` and `cuhk03_new_protocol_config_labeled.mat`. Put these two mat files under `data/cuhk03`. Finally, the data structure would look like
+3. Download the train/test split protocal from [person-re-ranking](https://github.com/zhunzhong07/person-re-ranking/tree/master/evaluation/data/CUHK03). What you need are `cuhk03_new_protocol_config_detected.mat` and `cuhk03_new_protocol_config_labeled.mat`. Put the two mat files under `data/cuhk03`. Finally, the data structure would look like
 ```
 cuhk03/
     cuhk03_release/
@@ -38,7 +37,7 @@ cuhk03/
     cuhk03_new_protocol_config_labeled.mat
     ...
 ```
-4. Use `-d cuhk03` when running the training code. In default mode, we use new split (767/700). In addition, here we use both `labeled` modes. Please specify `--cuhk03-labeled` to train and test on `labeled` images.
+4. Use `-d cuhk03` when running the training code. In the default mode, we use the new split protocal (767/700). In addition, here we use both `labeled` modes. Please specify `--cuhk03-labeled` to train and test on `labeled` images.
 
 
 ## Pseudo Groundtruth Texture Images Generation
@@ -89,7 +88,7 @@ python main.py \
 ```
 
 ## Reference
-If you find our paper and repo useful, please cite our paper. Thanks!
+If you find our technique and repo useful, please cite our paper. Thanks!
 
 ```
 @article{jin2020semantics,
