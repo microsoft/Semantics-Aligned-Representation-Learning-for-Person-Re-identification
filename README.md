@@ -10,11 +10,6 @@ We propose a framework that drives the reID network to learn semantics-aligned f
 
 Figure 1: Illustration of the proposed Semantics Aligning Network (SAN). It consists of a base network as encoder (SA-Enc) and a decoder sub-network (SA-Dec). The reID feature vector is obtained by average pooling the feature map of the SA-Enc, followed by the reID losses. To encourage the encoder learning semantically aligned features, the SA-Dec is followed which regresses the densely semantically aligned full texture image with the pseudo groundtruth supervision. In inference, the SA-Dec is discarded.
 
-## Installation
-1. Git clone this repo.
-2. Install dependencies by `pip install -r requirements.txt` (if necessary).
-3. To install the cython-based evaluation toolbox, `cd` to `torchreid/eval_cylib` and do `make`. As a result, `eval_metrics_cy.so` is generated under the same folder. Run `python test_cython.py` to test if the toolbox is installed successfully. (credit to [luzai](https://github.com/luzai))
-
 ## Synthesized Paired-Image-Texture dataset (PIT dataset)
 
 To train the SAN-PG, we synthesize a Paired-Image-Texture dataset (PIT dataset), based on [SURREAL dataset](https://www.di.ens.fr/willow/research/surreal/), for the purpose of providing the image pairs, i.e., the person image and its texture image. The texture image stores the RGB texture of the full person 3D surface. In particular, we use 929 raster-scanned texture maps provided by the SURREAL dataset to generate the image pairs. On SURREAL, all faces in the texture image are replaced by an average face of either man or woman. We generate 9,290 different meshes of diverse poses/shapes/viewpoints. For each texture map, we assign 10 different meshes and render these 3D meshes with the texture image. Then we obtain in total 9,290 different synthesized (person image, texture image) pairs. To simulate real-world scenes, the background images for rendering are randomly sampled from [COCO dataset](http://cocodataset.org/#home). Each synthetic person image is centered on a person with resolution 256x128. The resolution of the texture images is 256x256. The PIT dataset can be downloaded from [here](https://drive.google.com/file/d/1-ndIFhppMG_zjHCRfrnWRvbRQZObw2tT/view?usp=sharing)
@@ -23,6 +18,11 @@ To train the SAN-PG, we synthesize a Paired-Image-Texture dataset (PIT dataset),
 
 
 Figure 2: Examples of texture images (first row) and the corresponding synthesized person images with different poses, viewpoints, and backgrounds (second row). A texture image represents the full texture of the 3D human surface in a surface-based canonical coordinate system (UV space). Each position (u,v) corresponds to a unique semantic identity. For person images of different persons/poses/viewpoints (in the second row), their corresponding texture images are densely semantically aligned.
+
+## Installation
+1. Git clone this repo.
+2. Install dependencies by `pip install -r requirements.txt` (if necessary).
+3. To install the cython-based evaluation toolbox, `cd` to `torchreid/eval_cylib` and do `make`. As a result, `eval_metrics_cy.so` is generated under the same folder. Run `python test_cython.py` to test if the toolbox is installed successfully. (credit to [luzai](https://github.com/luzai))
 
 ## ReID Dataset Preparation
 Here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as the example for description. See [torchreid/datasets/\_\_init__.py](torchreid/datasets/__init__.py) for details. The data managers of image reID are implemented in [torchreid/data_manager.py](torchreid/data_manager.py).
