@@ -2,7 +2,7 @@
 This repository holds the codes and methods for the following AAAI-2020 paper:
 - [Semantics-Aligned Representation Learning for Person Re-identification](https://arxiv.org/pdf/1905.13143.pdf)
 
-Person re-identification (reID) aims to match person images to retrieve the ones with the same identity. This work is targeted for the applications of finding lost child, and the visitor density analysis in retail store. Person reID is a challenging task, as the images to be matched are generally semantically misaligned due to the diversity of human poses and capture viewpoints, incompleteness of the visible bodies (due to occlusion), etc. 
+Person re-identification (reID) aims to match person images to retrieve the ones with the same identity. Note that this work is targeted for the applications of finding lost child, and the customer density analysis in retail stores. Person reID is a challenging task, as the images to be matched are generally semantically misaligned due to the diversity of human poses and capture viewpoints, incompleteness of the visible bodies (due to occlusion), etc. 
 
 We propose a framework that drives the reID network to learn semantics-aligned feature representation through delicate supervision designs. Specifically, we build a Semantics Aligning Network (SAN) which consists of a base network as encoder (SA-Enc) for re-ID, and a decoder (SA-Dec) for reconstructing/regressing the densely semantics aligned full texture image. We jointly train the SAN under the supervisions of person re-identification and aligned texture generation. Moreover, at the decoder, besides the reconstruction loss, we add Triplet ReID constraints over the feature maps as the perceptual losses. The decoder is discarded in the inference and thus our scheme is computationally efficient. Our design significantly outperforms the performance of baseline and achieve the state-of-the-art performance. 
 
@@ -25,7 +25,7 @@ Figure 2: Examples of texture images (first row) and the corresponding synthesiz
 3. To install the cython-based evaluation toolbox, `cd` to `torchreid/eval_cylib` and do `make`. As a result, `eval_metrics_cy.so` is generated under the same folder. Run `python test_cython.py` to test if the toolbox is installed successfully. (credit to [luzai](https://github.com/luzai))
 
 ## ReID Dataset Preparation
-Here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as the example for description. See [torchreid/datasets/\_\_init__.py](torchreid/datasets/__init__.py) for details. The data managers of image reID are implemented in [torchreid/data_manager.py](torchreid/data_manager.py).
+Here we use the [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as an example for description. See [torchreid/datasets/\_\_init__.py](torchreid/datasets/__init__.py) for details. The data managers of image reID are implemented in [torchreid/data_manager.py](torchreid/data_manager.py).
 
 1. Create a folder named `cuhk03/` under `/YOUR_DATASET_PATH/`.
 2. Download dataset to `data/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`, so you will have `data/cuhk03/cuhk03_release`.
@@ -50,8 +50,8 @@ python generate_texture.py -m /DOWNLOADED_SAN-PG_WEIGHTS -i example_results/inpu
 ```
 For convenience, we also provide our generated pseudo groundtruth texture images for CUHK03 (Labeled), that is [texture_cuhk03_labeled](https://drive.google.com/file/d/19-9WdlbqjD4n2usV-D2zyyzeUfjcXxlv/view?usp=sharing) 
 
-- Place these generated pseudo groundtruth texture images of CUHK03 dataset to /YOUR_DATASET_PATH/cuhk03/
-- Finally, the CUHK03 ReID data structure would look like
+- Place these generated pseudo groundtruth texture images of the CUHK03 dataset to /YOUR_DATASET_PATH/cuhk03/
+- Finally, the data structure would look like
 ```
 cuhk03/
     cuhk03_release/
