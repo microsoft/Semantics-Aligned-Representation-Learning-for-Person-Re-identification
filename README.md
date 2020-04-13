@@ -48,9 +48,9 @@ Here we provide the pre-trained weight for [SAN-PG](https://drive.google.com/fil
 ```bash
 python generate_texture.py -m /DOWNLOADED_SAN-PG_WEIGHTS -i example_results/input -o example_results/texture
 ```
-For convenience, we also provide our generated pseudo groundtruth texture images for CUHK03 (Labeled), that is [texture_cuhk03_labeled](https://drive.google.com/file/d/19-9WdlbqjD4n2usV-D2zyyzeUfjcXxlv/view?usp=sharing) 
+For convenience, we also provide our generated pseudo groundtruth texture images for CUHK03 (Labeled), that is [texture_cuhk03_labeled](https://drive.google.com/file/d/19-9WdlbqjD4n2usV-D2zyyzeUfjcXxlv/view?usp=sharing). 
 
-- Place these generated pseudo groundtruth texture images of the CUHK03 dataset to /YOUR_DATASET_PATH/cuhk03/
+- Place these generated pseudo groundtruth texture images of the CUHK03 dataset to /YOUR_DATASET_PATH/cuhk03/.
 - Finally, the data structure would look like
 ```
 cuhk03/
